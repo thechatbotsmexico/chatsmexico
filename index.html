@@ -5,245 +5,242 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Chatbots México</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0d1b3e 0%, #1a3a6e 50%, #0d47a1 100%);
-      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      background: #020818;
       color: #fff;
+      overflow-x: hidden;
     }
-    header {
-      padding: 100px 20px 80px;
-      text-align: center;
-      background: linear-gradient(180deg, rgba(13,27,62,0.9) 0%, transparent 100%);
+
+    /* Geometric pattern overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image:
+        linear-gradient(rgba(30,80,200,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,80,200,0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
     }
-    header h1 {
-      font-size: 3em;
-      color: #fff;
-      margin-bottom: 15px;
-      text-shadow: 0 0 30px rgba(100,181,246,0.8);
-      letter-spacing: 2px;
+
+    /* Glow effects */
+    .glow-top {
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(29,78,216,0.25) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
     }
-    header p {
-      font-size: 1.2em;
-      color: #90caf9;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      line-height: 1.7;
-    }
-    .badges {
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 60px;
       display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(2,8,24,0.6);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(30,80,200,0.15);
     }
-    .badge {
-      background: rgba(100,181,246,0.15);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(100,181,246,0.4);
-      padding: 8px 20px;
-      border-radius: 20px;
-      color: #90caf9;
-      font-size: 0.9em;
+
+    .nav-logo {
+      font-size: 1em;
+      font-weight: 600;
+      color: #93c5fd;
+      letter-spacing: 1px;
     }
-    .cta {
-      background: linear-gradient(135deg, #1565c0, #0d47a1);
-      color: #fff;
-      padding: 16px 45px;
-      border-radius: 30px;
+
+    .nav-links {
+      display: flex;
+      gap: 35px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #94a3b8;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1em;
-      border: 1px solid rgba(100,181,246,0.5);
-      box-shadow: 0 0 20px rgba(21,101,192,0.6);
+      font-size: 0.9em;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .nav-cta {
+      background: rgba(30,80,200,0.2);
+      border: 1px solid rgba(93,169,253,0.3);
+      color: #93c5fd;
+      padding: 9px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: 500;
       transition: all 0.3s;
     }
-    .cta:hover {
-      background: linear-gradient(135deg, #1976d2, #1565c0);
-      box-shadow: 0 0 30px rgba(21,101,192,0.9);
+
+    .nav-cta:hover {
+      background: rgba(30,80,200,0.35);
+      border-color: rgba(93,169,253,0.6);
     }
-    section {
-      padding: 60px 20px;
-      max-width: 960px;
-      margin: 0 auto;
+
+    /* Hero */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
     }
-    h2 {
-      font-size: 2em;
-      color: #fff;
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(30,80,200,0.15);
+      border: 1px solid rgba(93,169,253,0.25);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      color: #93c5fd;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
       margin-bottom: 35px;
-      text-align: center;
-      text-shadow: 0 0 20px rgba(100,181,246,0.6);
     }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+
+    .hero-label::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #3b82f6;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #3b82f6;
     }
-    .card {
-      background: rgba(13,71,161,0.25);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(100,181,246,0.3);
-      border-radius: 16px;
-      padding: 35px 25px;
-      text-align: center;
-      transition: transform 0.3s;
+
+    .hero h1 {
+      font-size: clamp(2.8em, 6vw, 5em);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -2px;
+      color: #fff;
+      max-width: 750px;
+      margin-bottom: 25px;
     }
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(100,181,246,0.6);
-      background: rgba(13,71,161,0.35);
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #60a5fa, #818cf8, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .card h3 {
-      color: #90caf9;
-      margin-bottom: 12px;
-      font-size: 1.3em;
+
+    .hero p {
+      font-size: 1.1em;
+      color: #64748b;
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 45px;
+      font-weight: 400;
     }
-    .card p {
-      color: #e3f2fd;
-      line-height: 1.7;
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1d4ed8, #4f46e5, #7c3aed);
+      color: #fff;
+      padding: 14px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
       font-size: 0.95em;
+      box-shadow: 0 0 30px rgba(79,70,229,0.4), 0 0 60px rgba(79,70,229,0.15);
+      transition: all 0.3s;
+      border: 1px solid rgba(167,139,250,0.3);
     }
-    .plans {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+
+    .btn-primary:hover {
+      box-shadow: 0 0 40px rgba(79,70,229,0.6), 0 0 80px rgba(79,70,229,0.25);
+      transform: translateY(-2px);
     }
-    .plan {
-      background: rgba(13,71,161,0.25);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(100,181,246,0.3);
-      border-radius: 16px;
-      padding: 35px 25px;
-      text-align: center;
-      transition: transform 0.3s;
+
+    .btn-secondary {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.95em;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s;
     }
-    .plan:hover {
-      transform: translateY(-5px);
+
+    .btn-secondary:hover { color: #fff; }
+
+    /* Stats bar */
+    .stats-bar {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      padding: 40px 20px;
+      border-top: 1px solid rgba(30,80,200,0.15);
+      border-bottom: 1px solid rgba(30,80,200,0.15);
+      background: rgba(2,8,24,0.5);
+      flex-wrap: wrap;
     }
-    .plan.featured {
-      background: rgba(21,101,192,0.4);
-      border-color: rgba(100,181,246,0.7);
-      box-shadow: 0 0 25px rgba(21,101,192,0.4);
+
+    .stat { text-align: center; }
+    .stat-number {
+      font-size: 2em;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -1px;
     }
-    .plan h3 {
-      color: #90caf9;
-      margin-bottom: 10px;
-      font-size: 1.2em;
+    .stat-label {
+      font-size: 0.8em;
+      color: #475569;
+      margin-top: 4px;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    .plan .price {
-      font-size: 2.5em;
-      font-weight: bold;
-      color: #fff;
-      margin: 15px 0;
-      text-shadow: 0 0 15px rgba(100,181,246,0.5);
+
+    /* Features */
+    .features {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 100px 20px;
     }
-    .plan ul {
-      list-style: none;
-      color: #e3f2fd;
-      line-height: 2.2;
-      text-align: left;
-      font-size: 0.95em;
-    }
-    .plan ul li::before {
-      content: "✓ ";
-      color: #64b5f6;
-      font-weight: bold;
-    }
-    footer {
-      background: rgba(13,27,62,0.8);
-      backdrop-filter: blur(10px);
-      border-top: 1px solid rgba(100,181,246,0.2);
+
+    .section-label {
       text-align: center;
-      padding: 35px;
-      color: #90caf9;
-    }
-    footer a {
-      color: #64b5f6;
-      text-decoration: none;
-    }
-    footer a:hover {
-      color: #fff;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <h1>The Chatbots México</h1>
-  <p>Automatizamos la atención de tu negocio con chatbots inteligentes para WhatsApp, Facebook e Instagram.</p>
-  <div class="badges">
-    <span class="badge">WhatsApp</span>
-    <span class="badge">Facebook</span>
-    <span class="badge">Instagram</span>
-    <span class="badge">Inteligencia Artificial</span>
-  </div>
-  <a href="https://www.facebook.com/profile.php?id=61577486116971" class="cta" target="_blank">Habla con Neo, nuestro agente</a>
-</header>
-
-<section>
-  <h2>¿Qué hacemos?</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Atención 24/7</h3>
-      <p>Tu negocio responde automáticamente a cada mensaje, a cualquier hora, sin perder una sola venta.</p>
-    </div>
-    <div class="card">
-      <h3>Inteligencia Artificial</h3>
-      <p>Nuestros bots entienden lenguaje natural y se adaptan a las preguntas de tus clientes en tiempo real.</p>
-    </div>
-    <div class="card">
-      <h3>Captura de Leads</h3>
-      <p>Cada conversación guarda automáticamente nombre, teléfono y datos del cliente en Google Sheets.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>Planes</h2>
-  <div class="plans">
-    <div class="plan">
-      <h3>Plan Esencial</h3>
-      <div class="price">$800<span style="font-size:0.35em; color:#90caf9">/mes</span></div>
-      <ul>
-        <li>1 plataforma</li>
-        <li>Respuestas 24/7</li>
-        <li>500 conversaciones/mes</li>
-        <li>1 mes de soporte</li>
-      </ul>
-    </div>
-    <div class="plan featured" style="position:relative;">
-      <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,#1565c0,#0d47a1); color:#fff; padding:5px 20px; border-radius:20px; font-size:0.8em; font-weight:bold; border:1px solid rgba(100,181,246,0.6); white-space:nowrap;">POPULAR</div>
-      <h3>Plan Profesional</h3>
-      <div class="price">$1,100<span style="font-size:0.35em; color:#90caf9">/mes</span></div>
-      <ul>
-        <li>2 plataformas</li>
-        <li>Inteligencia Artificial</li>
-        <li>Google Sheets</li>
-        <li>1,000 conversaciones/mes</li>
-        <li>2 meses de soporte</li>
-      </ul>
-    </div>
-    <div class="plan">
-      <h3>Plan Empresarial</h3>
-      <div class="price">$1,500<span style="font-size:0.35em; color:#90caf9">/mes</span></div>
-      <ul>
-        <li>3 plataformas</li>
-        <li>Inteligencia Artificial</li>
-        <li>Google Sheets + Calendar</li>
-        <li>Conversaciones ilimitadas</li>
-        <li>Soporte prioritario</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>The Chatbots México — Chihuahua, México</p>
-  <p style="margin-top:10px"><a href="privacy.html">Política de Privacidad</a></p>
-</footer>
-
-</body>
-</html>
+      font-size: 0.8em;
+      color: #3b82f6;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font
