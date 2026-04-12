@@ -111,6 +111,7 @@
       transform: translateY(-1px);
     }
 
+    /* HERO */
     .hero {
       position: relative;
       z-index: 1;
@@ -118,8 +119,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 120px 20px 80px;
+      padding: 120px 60px 80px;
       overflow: hidden;
     }
 
@@ -134,24 +134,40 @@
       z-index: 0;
     }
 
-    .hero-content {
+    .hero-grid {
       position: relative;
       z-index: 2;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
       align-items: center;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .hero-left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .hero-neo {
-      width: 160px;
-      margin-bottom: 30px;
-      filter: drop-shadow(0 0 30px rgba(0,114,255,0.6));
+      width: 100%;
+      max-width: 420px;
+      filter: drop-shadow(0 0 40px rgba(0,114,255,0.7));
       animation: float 4s ease-in-out infinite;
     }
 
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-12px); }
+      50% { transform: translateY(-16px); }
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
     }
 
     .hero-label {
@@ -180,50 +196,42 @@
       box-shadow: 0 0 8px #127cff;
     }
 
-    .hero h1 {
-      font-size: clamp(2.8em, 6vw, 5em);
+    .hero-right h1 {
+      font-size: clamp(2.4em, 4.5vw, 4.2em);
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -2px;
       color: #fff;
-      max-width: 750px;
       margin-bottom: 25px;
     }
 
-    .hero h1 span {
+    .hero-right h1 span {
       background: linear-gradient(135deg, #60a5fa, #127cff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    .hero p {
-      font-size: 1.1em;
+    .hero-right p {
+      font-size: 1.05em;
       color: #64748b;
-      max-width: 480px;
       line-height: 1.8;
-      margin-bottom: 45px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
+      margin-bottom: 40px;
+      max-width: 440px;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, #0072ff, #127cff);
       color: #fff;
-      padding: 14px 35px;
+      padding: 16px 40px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.95em;
+      font-size: 1em;
       box-shadow: 0 0 30px rgba(0,114,255,0.5);
       transition: all 0.3s;
       border: 1px solid rgba(255,255,255,0.2);
+      display: inline-block;
     }
 
     .btn-primary:hover {
@@ -231,16 +239,7 @@
       transform: translateY(-2px);
     }
 
-    .btn-secondary {
-      color: #94a3b8;
-      text-decoration: none;
-      font-size: 0.95em;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .btn-secondary:hover { color: #fff; }
-
+    /* STATS */
     .stats-bar {
       position: relative;
       z-index: 1;
@@ -272,6 +271,7 @@
       letter-spacing: 1px;
     }
 
+    /* FEATURES */
     .features {
       position: relative;
       z-index: 1;
@@ -353,6 +353,7 @@
       line-height: 1.7;
     }
 
+    /* CHAT */
     .chat-section {
       position: relative;
       z-index: 1;
@@ -497,6 +498,7 @@
       text-align: right;
     }
 
+    /* PLANS */
     .plans-section {
       position: relative;
       z-index: 1;
@@ -563,26 +565,26 @@
     }
 
     .popular-badge {
-  position: absolute;
-  top: -25px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: fit-content;
-  background: rgba(18,124,255,0.3);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: #fff;
-  padding: 5px 20px;
-  border-radius: 20px;
-  font-size: 0.72em;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  border: 1px solid rgba(18,124,255,0.5);
-  box-shadow: 0 0 15px rgba(0,114,255,0.3);
-  z-index: 3;
+      position: absolute;
+      top: -14px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: fit-content;
+      background: rgba(18,124,255,0.3);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: #fff;
+      padding: 5px 20px;
+      border-radius: 20px;
+      font-size: 0.72em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      border: 1px solid rgba(18,124,255,0.5);
+      box-shadow: 0 0 15px rgba(0,114,255,0.3);
+      z-index: 3;
     }
 
     .plan-name {
@@ -709,6 +711,11 @@
     @media (max-width: 768px) {
       nav { padding: 15px 20px; }
       .nav-links { display: none; }
+      .hero { padding: 100px 20px 60px; }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-right { align-items: center; text-align: center; }
+      .hero-right p { max-width: 100%; }
+      .hero-neo { max-width: 260px; }
       .chat-container { grid-template-columns: 1fr; }
       footer { padding: 30px 20px; flex-direction: column; text-align: center; }
     }
@@ -733,14 +740,15 @@
 
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-content">
-    <img src="images/NEO BLUE.png" alt="Neo" class="hero-neo reveal from-top">
-    <div class="hero-label reveal from-bottom">Chatbots con Inteligencia Artificial</div>
-    <h1 class="reveal from-bottom">Automatiza tu negocio.<br><span>Vende mientras duermes.</span></h1>
-    <p class="reveal from-bottom">Chatbots inteligentes para WhatsApp, Facebook e Instagram. Responde a tus clientes 24/7 sin perder una sola oportunidad.</p>
-    <div class="hero-buttons reveal from-bottom">
+  <div class="hero-grid">
+    <div class="hero-left reveal from-left">
+      <img src="images/NEO BLUE.png" alt="Neo" class="hero-neo">
+    </div>
+    <div class="hero-right reveal from-right">
+      <div class="hero-label">Chatbots con Inteligencia Artificial</div>
+      <h1>Automatiza tu negocio.<br><span>Vende mientras duermes.</span></h1>
+      <p>Chatbots inteligentes para WhatsApp, Facebook e Instagram. Responde a tus clientes 24/7 sin perder una sola oportunidad.</p>
       <a href="https://www.facebook.com/profile.php?id=61572097770384" class="btn-primary" target="_blank">Habla con Neo, nuestro agente</a>
-      <a href="#plans" class="btn-secondary">Ver planes →</a>
     </div>
   </div>
 </section>
@@ -803,27 +811,27 @@
 </section>
 
 <section class="chat-section" id="chat">
-  <div class="section-label reveal from-bottom">Con la mejor tecnología AI</div>
+  <div class="section-label reveal from-bottom">Demo en vivo</div>
   <h2 class="section-title reveal from-bottom">Así trabaja Neo</h2>
   <p class="section-sub reveal from-bottom" style="margin-bottom:60px">Tu cliente escribe, Neo responde. Así de simple.</p>
   <div class="chat-container">
     <div class="chat-text reveal from-left">
       <h2>Convierte mensajes en <span>ventas reales</span></h2>
       <p>Neo entiende lo que tu cliente necesita, responde al instante y guarda cada lead automáticamente. Sin intervención humana, sin perder una sola oportunidad.</p>
-      <a href="https://www.facebook.com/profile.php?id=61572097770384" class="btn-primary" target="_blank" style="display:inline-block;width:auto;padding:13px 30px;">Probar a Neo ahora →</a>
+      <a href="https://www.facebook.com/profile.php?id=61572097770384" class="btn-primary" target="_blank">Probar a Neo ahora →</a>
     </div>
     <div class="chat-mockup reveal from-right">
       <div class="chat-header">
-        <div class="chat-avatar">C</div>
+        <div class="chat-avatar">N</div>
         <div class="chat-info">
-          <div class="chat-name">La Calesa · Restaurant</div>
+          <div class="chat-name">Neo · Agente IA</div>
           <div class="chat-status">En línea</div>
         </div>
       </div>
       <div class="chat-body">
         <div class="chat-body-bg"></div>
         <div class="msg msg-bot">
-          ¡Hola! 👋 Bienvenido a <strong>La Calesa</strong>. ¿En qué te puedo ayudar hoy?
+          ¡Hola! Soy Neo 👋 Bienvenido a <strong>Tacos El Güero</strong>. ¿En qué te puedo ayudar hoy?
           <div class="msg-time">10:42 am</div>
         </div>
         <div class="msg msg-user">
@@ -831,23 +839,23 @@
           <div class="msg-time" style="color:rgba(255,255,255,0.5)">10:42 am</div>
         </div>
         <div class="msg msg-bot">
-          ¡Con gusto! 👨‍🍳 ¿Qué te apetece ordenar? Hoy tenemos:<br><br>
-          • Corte de bistec $150<br>
-          • Taco de camarón $65<br>
-          • Quesadilla Alemana $78<br><br>
-          ¿Qué te gustaría ordenar?
+          ¡Con gusto! 🌮 ¿Qué te apetece ordenar? Hoy tenemos:<br><br>
+          • Taco de bistec $28<br>
+          • Taco de pastor $25<br>
+          • Quesadilla $38<br><br>
+          ¿Cuántos tacos te llevas?
           <div class="msg-time">10:43 am</div>
         </div>
         <div class="msg msg-user">
-          2 cortes de bistec y 3 tacos de camarón por favor
+          3 de bistec y 2 de pastor por favor
           <div class="msg-time" style="color:rgba(255,255,255,0.5)">10:43 am</div>
         </div>
         <div class="msg msg-bot">
           Perfecto ✅ Tu pedido:<br><br>
-          • 2x Corte Bistec — $300<br>
-          • 3x Taco Camarón — $195<br>
-          <strong>Total: $495 MXN</strong><br><br>
-          ¿Me das tu nombre y teléfono para tenerlo listo? 🙌
+          • 3x Bistec — $84<br>
+          • 2x Pastor — $50<br>
+          <strong>Total: $134 MXN</strong><br><br>
+          ¿Me das tu nombre para tenerlo listo? 🙌
           <div class="msg-time">10:44 am</div>
         </div>
       </div>
@@ -878,7 +886,7 @@
     <div class="plan-card featured reveal from-bottom">
       <div class="plan-card-bg"></div>
       <div class="plan-card-overlay"></div>
-      <div class="popular-badge">MÁS VENDIDO</div>
+      <div class="popular-badge">POPULAR</div>
       <div class="plan-name" style="margin-top:18px">Plan Profesional</div>
       <div class="plan-price">$1,100<span>/mes</span></div>
       <p class="plan-desc">El más solicitado. Para negocios que quieren crecer rápido.</p>
