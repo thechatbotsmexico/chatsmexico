@@ -28,7 +28,6 @@
       z-index: 0;
     }
 
-    /* SCROLL ANIMATIONS */
     .reveal {
       opacity: 0;
       transition: opacity 0.8s ease, transform 0.8s ease;
@@ -37,13 +36,8 @@
     .reveal.from-left { transform: translateX(-60px); }
     .reveal.from-right { transform: translateX(60px); }
     .reveal.from-top { transform: translateY(-40px); }
-    .reveal.scale-in { transform: scale(0.9); }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
+    .reveal.visible { opacity: 1; transform: none; }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -117,7 +111,6 @@
       transform: translateY(-1px);
     }
 
-    /* HERO */
     .hero {
       position: relative;
       z-index: 1;
@@ -231,7 +224,6 @@
       box-shadow: 0 0 30px rgba(0,114,255,0.5);
       transition: all 0.3s;
       border: 1px solid rgba(255,255,255,0.2);
-      backdrop-filter: blur(10px);
     }
 
     .btn-primary:hover {
@@ -249,7 +241,6 @@
 
     .btn-secondary:hover { color: #fff; }
 
-    /* STATS */
     .stats-bar {
       position: relative;
       z-index: 1;
@@ -281,7 +272,6 @@
       letter-spacing: 1px;
     }
 
-    /* FEATURES */
     .features {
       position: relative;
       z-index: 1;
@@ -363,7 +353,6 @@
       line-height: 1.7;
     }
 
-    /* CHAT MOCKUP */
     .chat-section {
       position: relative;
       z-index: 1;
@@ -508,7 +497,6 @@
       text-align: right;
     }
 
-    /* PLANS */
     .plans-section {
       position: relative;
       z-index: 1;
@@ -521,6 +509,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
+      align-items: stretch;
     }
 
     .plan-card {
@@ -528,10 +517,12 @@
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(18,124,255,0.2);
       border-radius: 20px;
-      padding: 40px 30px;
+      padding: 40px 30px 30px;
       position: relative;
       transition: all 0.3s;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .plan-card-bg {
@@ -573,7 +564,7 @@
 
     .popular-badge {
       position: absolute;
-      top: -1px;
+      top: -14px;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(18,124,255,0.3);
@@ -581,15 +572,14 @@
       -webkit-backdrop-filter: blur(12px);
       color: #fff;
       padding: 5px 20px;
-      border-radius: 0 0 16px 16px;
+      border-radius: 20px;
       font-size: 0.72em;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
       white-space: nowrap;
       border: 1px solid rgba(18,124,255,0.5);
-      border-top: none;
-      box-shadow: 0 4px 20px rgba(0,114,255,0.3);
+      box-shadow: 0 0 15px rgba(0,114,255,0.3);
       z-index: 3;
     }
 
@@ -620,7 +610,7 @@
 
     .plan-desc {
       font-size: 0.85em;
-      color: #475569;
+      color: #fff;
       margin-bottom: 25px;
       line-height: 1.6;
     }
@@ -633,7 +623,8 @@
 
     .plan-features {
       list-style: none;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
+      flex: 1;
     }
 
     .plan-features li {
@@ -661,6 +652,7 @@
       font-size: 0.9em;
       transition: all 0.3s;
       backdrop-filter: blur(10px);
+      margin-top: auto;
     }
 
     .plan-btn-outline {
@@ -687,7 +679,6 @@
       transform: translateY(-1px);
     }
 
-    /* FOOTER */
     footer {
       position: relative;
       z-index: 1;
@@ -817,7 +808,7 @@
     <div class="chat-text reveal from-left">
       <h2>Convierte mensajes en <span>ventas reales</span></h2>
       <p>Neo entiende lo que tu cliente necesita, responde al instante y guarda cada lead automáticamente. Sin intervención humana, sin perder una sola oportunidad.</p>
-      <a href="https://www.facebook.com/profile.php?id=61572097770384" class="btn-primary" target="_blank" style="display:inline-block; width:auto; padding:13px 30px;">Probar a Neo ahora →</a>
+      <a href="https://www.facebook.com/profile.php?id=61572097770384" class="btn-primary" target="_blank" style="display:inline-block;width:auto;padding:13px 30px;">Probar a Neo ahora →</a>
     </div>
     <div class="chat-mockup reveal from-right">
       <div class="chat-header">
@@ -886,7 +877,7 @@
       <div class="plan-card-bg"></div>
       <div class="plan-card-overlay"></div>
       <div class="popular-badge">POPULAR</div>
-      <div class="plan-name" style="margin-top:20px">Plan Profesional</div>
+      <div class="plan-name" style="margin-top:18px">Plan Profesional</div>
       <div class="plan-price">$1,100<span>/mes</span></div>
       <p class="plan-desc">El más solicitado. Para negocios que quieren crecer rápido.</p>
       <div class="plan-divider"></div>
@@ -925,19 +916,15 @@
 
 <script>
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, (entry.target.dataset.delay || 0));
+        entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.15 });
 
-  document.querySelectorAll('.reveal').forEach(el => {
-    observer.observe(el);
-  });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>
