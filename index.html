@@ -92,16 +92,6 @@
                   linear-gradient(180deg, #020818 0%, #041030 60%, #020818 100%);
     }
 
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('images/BACK.png');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.08;
-      z-index: 0;
-    }
-
     .hero-grid {
       position: relative;
       z-index: 2;
@@ -119,11 +109,19 @@
       justify-content: center;
     }
 
-    .hero-neo {
-      width: 85%;
-      max-width: 340px;
-      filter: drop-shadow(0 0 40px rgba(0,114,255,0.6));
+    /* NEO como gradiente animado sin imagen */
+    .hero-neo-placeholder {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at 40% 35%, rgba(96,165,250,0.8), rgba(0,114,255,0.6), rgba(2,8,50,0.9));
+      box-shadow: 0 0 60px rgba(0,114,255,0.5), 0 0 120px rgba(0,114,255,0.2);
       animation: float 8s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5em;
+      filter: drop-shadow(0 0 20px rgba(0,114,255,0.8));
     }
 
     @keyframes float {
@@ -248,10 +246,7 @@
       letter-spacing: 1px;
     }
 
-    section {
-      position: relative;
-      z-index: 1;
-    }
+    section { position: relative; z-index: 1; }
 
     .section-inner {
       max-width: 1000px;
@@ -472,17 +467,22 @@
       flex-direction: column;
       gap: 10px;
       position: relative;
+      min-height: 320px;
     }
 
-    .chat-body-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('images/BACK.png');
-      background-size: cover;
-      opacity: 0.06;
+    .msg {
+      position: relative;
+      z-index: 1;
+      max-width: 82%;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
-    .msg { position: relative; z-index: 1; max-width: 82%; }
+    .msg.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .msg-bot {
       align-self: flex-start;
@@ -513,6 +513,39 @@
       text-align: right;
     }
 
+    /* Indicador de escritura */
+    .typing-indicator {
+      align-self: flex-start;
+      background: rgba(18,124,255,0.18);
+      border: 1px solid rgba(18,124,255,0.25);
+      border-radius: 0 12px 12px 12px;
+      padding: 10px 14px;
+      display: none;
+      gap: 4px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .typing-indicator.show { display: flex; }
+
+    .typing-dot {
+      width: 6px;
+      height: 6px;
+      background: #60a5fa;
+      border-radius: 50%;
+      animation: typingBounce 1.2s ease-in-out infinite;
+    }
+
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typingBounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+      30% { transform: translateY(-5px); opacity: 1; }
+    }
+
+    /* NEO section */
     .neo-section {
       background: linear-gradient(180deg, #020818, rgba(0,40,100,0.15), #020818);
     }
@@ -529,16 +562,9 @@
       justify-content: center;
     }
 
-    .neo-img {
-      width: 200px;
-      filter: drop-shadow(0 0 30px rgba(0,114,255,0.5));
-      animation: float 8s ease-in-out infinite;
-    }
-
     .neo-logo-img {
-      width: 160px;
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 15px rgba(0,114,255,0.4));
+      width: 220px;
+      filter: drop-shadow(0 0 20px rgba(0,114,255,0.5));
     }
 
     .neo-text h2 {
@@ -678,15 +704,6 @@
       background: rgba(2,8,30,0.6);
     }
 
-    .plan-card-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('images/BACK.png');
-      background-size: cover;
-      opacity: 0.06;
-      z-index: 0;
-    }
-
     .plan-card-overlay {
       position: absolute;
       inset: 0;
@@ -694,7 +711,7 @@
       z-index: 0;
     }
 
-    .plan-card > *:not(.plan-card-bg):not(.plan-card-overlay) {
+    .plan-card > *:not(.plan-card-overlay) {
       position: relative;
       z-index: 2;
     }
@@ -833,6 +850,21 @@
       line-height: 1.7;
     }
 
+    /* Neo CTA placeholder */
+    .neo-cta-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at 40% 35%, rgba(96,165,250,0.8), rgba(0,114,255,0.6), rgba(2,8,50,0.9));
+      box-shadow: 0 0 40px rgba(0,114,255,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3em;
+      margin: 0 auto 30px;
+      animation: float 8s ease-in-out infinite;
+    }
+
     footer {
       position: relative;
       z-index: 1;
@@ -864,7 +896,7 @@
       .hero-grid { grid-template-columns: 1fr; gap: 30px; text-align: center; }
       .hero-left { order: 1; }
       .hero-right { order: 2; align-items: center; text-align: center; }
-      .hero-neo { max-width: 220px; width: 70%; }
+      .hero-neo-placeholder { width: 180px; height: 180px; font-size: 3.5em; }
       .hero-right p { max-width: 100%; }
       .section-inner { padding: 60px 20px; }
       .problem-stats { grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -874,8 +906,7 @@
       .neo-intro { grid-template-columns: 1fr; gap: 30px; text-align: center; }
       .neo-image { order: 1; }
       .neo-text { order: 2; }
-      .neo-img { width: 140px; }
-      .neo-logo-img { width: 120px; }
+      .neo-logo-img { width: 160px; }
       .plans-grid { grid-template-columns: 1fr; }
       .sheets-table th:nth-child(3),
       .sheets-table td:nth-child(3) { display: none; }
@@ -900,10 +931,9 @@
 </nav>
 
 <section class="hero">
-  <div class="hero-bg"></div>
   <div class="hero-grid">
     <div class="hero-left reveal from-left">
-      <img src="images/NEO BLUE.png" alt="Neo" class="hero-neo">
+      <div class="hero-neo-placeholder">🤖</div>
     </div>
     <div class="hero-right reveal from-right">
       <div class="hero-label">Automatización con IA</div>
@@ -1018,7 +1048,7 @@
         <p>Tu agente entiende lo que tu cliente necesita, responde al instante y guarda cada lead automáticamente. Sin intervención humana, sin perder una sola oportunidad.</p>
         <a href="https://www.facebook.com/profile.php?id=61572097770384" class="btn-primary" target="_blank">Probar a Neo ahora →</a>
       </div>
-      <div class="chat-mockup reveal from-right">
+      <div class="chat-mockup reveal from-right" id="chatMockup">
         <div class="chat-header">
           <div class="chat-avatar">C</div>
           <div class="chat-info">
@@ -1026,35 +1056,11 @@
             <div class="chat-status">En línea</div>
           </div>
         </div>
-        <div class="chat-body">
-          <div class="chat-body-bg"></div>
-          <div class="msg msg-bot">
-            ¡Hola! 👋 Bienvenido a <strong>La Calesa</strong>. ¿En qué te puedo ayudar hoy?
-            <div class="msg-time">10:42 am</div>
-          </div>
-          <div class="msg msg-user">
-            Quiero hacer un pedido para llevar
-            <div class="msg-time" style="color:rgba(255,255,255,0.4)">10:42 am</div>
-          </div>
-          <div class="msg msg-bot">
-            ¡Con gusto! 👨‍🍳 Hoy tenemos:<br><br>
-            • Corte de bistec $150<br>
-            • Taco de camarón $65<br>
-            • Quesadilla Alemana $75<br><br>
-            ¿Cuál sería tu pedido?
-            <div class="msg-time">10:43 am</div>
-          </div>
-          <div class="msg msg-user">
-            2 cortes y 4 tacos de camarón
-            <div class="msg-time" style="color:rgba(255,255,255,0.4)">10:43 am</div>
-          </div>
-          <div class="msg msg-bot">
-            Perfecto ✅<br>
-            • 2x Bistec — $300<br>
-            • 4x Camarón — $260<br>
-            <strong>Total: $560 MXN</strong><br><br>
-            ¿Me das tu nombre? 🙌
-            <div class="msg-time">10:44 am</div>
+        <div class="chat-body" id="chatBody">
+          <div class="typing-indicator" id="typingIndicator">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
           </div>
         </div>
       </div>
@@ -1069,11 +1075,7 @@
     <div class="section-label reveal from-bottom">Nuestro agente demo</div>
     <div class="neo-intro">
       <div class="neo-image reveal from-left">
-        <div style="text-align:center">
-          <img src="images/NEO LOGO TEXTO.png" alt="Neo Logo" class="neo-logo-img">
-          <br>
-          <img src="images/NEO BLUE.png" alt="Neo" class="neo-img">
-        </div>
+        <img src="images/NEO LOGO TEXTO.png" alt="Neo" class="neo-logo-img">
       </div>
       <div class="neo-text reveal from-right">
         <h2>Conoce a Neo</h2>
@@ -1169,7 +1171,6 @@
     <p class="section-sub reveal from-bottom">Sin contratos largos. Cancela cuando quieras.</p>
     <div class="plans-grid">
       <div class="plan-card reveal from-left">
-        <div class="plan-card-bg"></div>
         <div class="plan-card-overlay"></div>
         <div class="plan-name">Plan Esencial</div>
         <div class="plan-price">$800<span>/mes</span></div>
@@ -1184,7 +1185,6 @@
         <a href="https://www.facebook.com/profile.php?id=61572097770384" class="plan-btn plan-btn-outline" target="_blank">Empezar ahora</a>
       </div>
       <div class="plan-card reveal from-bottom">
-        <div class="plan-card-bg"></div>
         <div class="plan-card-overlay"></div>
         <div class="plan-name">Plan Profesional</div>
         <div class="plan-price">$1,100<span>/mes</span></div>
@@ -1200,7 +1200,6 @@
         <a href="https://www.facebook.com/profile.php?id=61572097770384" class="plan-btn plan-btn-filled" target="_blank">Empezar ahora</a>
       </div>
       <div class="plan-card reveal from-right">
-        <div class="plan-card-bg"></div>
         <div class="plan-card-overlay"></div>
         <div class="plan-name">Plan Empresarial</div>
         <div class="plan-price">$1,500<span>/mes</span></div>
@@ -1223,9 +1222,7 @@
 
 <section class="cta-section">
   <div class="section-inner" style="padding-bottom:100px">
-    <div class="reveal from-bottom">
-      <img src="images/NEO BLUE.png" alt="Neo" style="width:120px; filter:drop-shadow(0 0 30px rgba(0,114,255,0.6)); animation:float 8s ease-in-out infinite; margin-bottom:30px">
-    </div>
+    <div class="neo-cta-icon reveal from-bottom">🤖</div>
     <h2 class="reveal from-bottom">¿Listo para automatizar<br>tu negocio?</h2>
     <p class="reveal from-bottom">Habla con Neo ahora mismo y descubre cómo un agente con IA puede transformar la atención al cliente de tu negocio.</p>
     <a href="https://www.facebook.com/profile.php?id=61572097770384" class="btn-primary reveal from-bottom" target="_blank" style="font-size:1.05em; padding:16px 44px">Hablar con Neo →</a>
@@ -1238,6 +1235,7 @@
 </footer>
 
 <script>
+  // ===== SCROLL REVEALS =====
   const reveals = document.querySelectorAll('.reveal');
 
   function handleScroll() {
@@ -1251,18 +1249,103 @@
       }
     });
 
+    // Google Sheets rows
     const sheetsMockup = document.querySelector('.sheets-mockup');
     if (sheetsMockup) {
       const rect = sheetsMockup.getBoundingClientRect();
       const rows = document.querySelectorAll('#sheetsBody tr');
       if (rect.top < windowH * 0.9) {
-        rows.forEach((row, i) => {
-          setTimeout(() => row.classList.add('row-visible'), i * 150);
-        });
+        rows.forEach((row, i) => setTimeout(() => row.classList.add('row-visible'), i * 150));
       } else {
         rows.forEach(row => row.classList.remove('row-visible'));
       }
     }
+
+    // Chat animation trigger
+    const chatMockup = document.getElementById('chatMockup');
+    if (chatMockup) {
+      const rect = chatMockup.getBoundingClientRect();
+      if (rect.top < windowH * 0.85 && !chatMockup.dataset.animated) {
+        chatMockup.dataset.animated = 'true';
+        startChatAnimation();
+      }
+      if (rect.top > windowH) {
+        chatMockup.dataset.animated = '';
+        resetChat();
+      }
+    }
+  }
+
+  // ===== CHAT ANIMATION =====
+  const chatMessages = [
+    { type: 'bot', text: '¡Hola! 👋 Bienvenido a <strong>La Calesa</strong>. ¿En qué te puedo ayudar hoy?', time: '10:42 am' },
+    { type: 'user', text: 'Hola, quiero hacer un pedido para llevar', time: '10:42 am' },
+    { type: 'bot', text: '¡Con gusto! 👨‍🍳 Hoy tenemos:<br><br>• Corte de bistec $150<br>• Taco de camarón $65<br>• Quesadilla Alemana $75<br><br>¿Cuál sería tu pedido?', time: '10:43 am' },
+    { type: 'user', text: '2 cortes y 4 tacos de camarón por favor', time: '10:43 am' },
+    { type: 'bot', text: 'Perfecto ✅<br>• 2x Bistec — $300<br>• 4x Camarón — $260<br><strong>Total: $560 MXN</strong><br><br>¿Me das tu nombre para tenerlo listo? 🙌', time: '10:44 am' },
+  ];
+
+  let chatTimeout = [];
+
+  function resetChat() {
+    chatTimeout.forEach(t => clearTimeout(t));
+    chatTimeout = [];
+    const body = document.getElementById('chatBody');
+    body.innerHTML = '<div class="typing-indicator" id="typingIndicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
+  }
+
+  function startChatAnimation() {
+    resetChat();
+    let delay = 600;
+
+    chatMessages.forEach((msg, i) => {
+      // Mostrar typing antes de cada mensaje del bot
+      if (msg.type === 'bot') {
+        chatTimeout.push(setTimeout(() => {
+          const indicator = document.getElementById('typingIndicator');
+          if (indicator) indicator.classList.add('show');
+        }, delay));
+        delay += 1200;
+        chatTimeout.push(setTimeout(() => {
+          const indicator = document.getElementById('typingIndicator');
+          if (indicator) indicator.classList.remove('show');
+          addMessage(msg);
+        }, delay));
+      } else {
+        chatTimeout.push(setTimeout(() => addMessage(msg), delay));
+      }
+      delay += msg.type === 'bot' ? 800 : 1000;
+    });
+
+    // Loop infinito
+    chatTimeout.push(setTimeout(() => {
+      if (document.getElementById('chatMockup')?.dataset.animated === 'true') {
+        document.getElementById('chatMockup').dataset.animated = '';
+        setTimeout(() => {
+          document.getElementById('chatMockup').dataset.animated = 'true';
+          startChatAnimation();
+        }, 2000);
+      }
+    }, delay + 2000));
+  }
+
+  function addMessage(msg) {
+    const body = document.getElementById('chatBody');
+    if (!body) return;
+
+    const div = document.createElement('div');
+    div.className = `msg msg-${msg.type}`;
+    div.innerHTML = `${msg.text}<div class="msg-time" style="${msg.type === 'user' ? 'color:rgba(255,255,255,0.4)' : ''}">${msg.time}</div>`;
+    
+    const indicator = document.getElementById('typingIndicator');
+    body.insertBefore(div, indicator);
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => div.classList.add('visible'));
+    });
+
+    // Auto scroll
+    body.scrollTop = body.scrollHeight;
   }
 
   window.addEventListener('scroll', handleScroll, { passive: true });
