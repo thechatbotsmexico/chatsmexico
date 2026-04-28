@@ -16,19 +16,6 @@
       overflow-x: hidden;
     }
 
-    /* GRADIENTES DE FONDO */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 20% 0%, rgba(0,114,255,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 100%, rgba(18,124,255,0.08) 0%, transparent 60%),
-        linear-gradient(180deg, #020818 0%, #041030 50%, #020818 100%);
-      pointer-events: none;
-      z-index: -1;
-    }
-
     .glow-top {
       position: fixed;
       top: -200px;
@@ -36,12 +23,11 @@
       transform: translateX(-50%);
       width: 900px;
       height: 700px;
-      background: radial-gradient(ellipse, rgba(0,114,255,0.25) 0%, transparent 70%);
+      background: radial-gradient(ellipse, rgba(0,114,255,0.2) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
 
-    /* SCROLL ANIMATIONS — bidireccionales */
     .reveal {
       opacity: 0;
       transition: opacity 0.7s ease, transform 0.7s ease;
@@ -53,7 +39,6 @@
     .reveal.scale-in { transform: scale(0.92); }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -94,7 +79,6 @@
       transform: translateY(-1px);
     }
 
-    /* HERO */
     .hero {
       position: relative;
       z-index: 1;
@@ -104,6 +88,8 @@
       justify-content: center;
       padding: 100px 24px 60px;
       overflow: hidden;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0,114,255,0.15) 0%, transparent 60%),
+                  linear-gradient(180deg, #020818 0%, #041030 60%, #020818 100%);
     }
 
     .hero-bg {
@@ -112,20 +98,7 @@
       background-image: url('images/BACK.png');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
-      opacity: 0.1;
-      z-index: 0;
-    }
-
-    .hero-glow {
-      position: absolute;
-      top: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(ellipse, rgba(0,114,255,0.2) 0%, transparent 70%);
-      pointer-events: none;
+      opacity: 0.08;
       z-index: 0;
     }
 
@@ -236,16 +209,13 @@
       transform: translateY(-2px);
     }
 
-    /* SEPARADOR CON GRADIENTE */
     .gradient-divider {
       position: relative;
       z-index: 1;
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(18,124,255,0.4), rgba(96,165,250,0.6), rgba(18,124,255,0.4), transparent);
-      margin: 0;
     }
 
-    /* STATS */
     .stats-bar {
       position: relative;
       z-index: 1;
@@ -278,7 +248,6 @@
       letter-spacing: 1px;
     }
 
-    /* SECCIONES */
     section {
       position: relative;
       z-index: 1;
@@ -321,9 +290,8 @@
       line-height: 1.7;
     }
 
-    /* PROBLEMA */
     .problem-section {
-      background: linear-gradient(180deg, transparent, rgba(0,20,60,0.3), transparent);
+      background: linear-gradient(180deg, #020818, rgba(0,20,60,0.4), #020818);
     }
 
     .problem-stats {
@@ -366,12 +334,11 @@
       line-height: 1.5;
     }
 
-    /* FEATURES */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1px;
-      background: linear-gradient(135deg, rgba(18,124,255,0.1), rgba(96,165,250,0.05));
+      background: rgba(18,124,255,0.08);
       border: 1px solid rgba(18,124,255,0.12);
       border-radius: 20px;
       overflow: hidden;
@@ -388,7 +355,7 @@
     .feature-icon {
       width: 40px;
       height: 40px;
-      background: linear-gradient(135deg, rgba(0,114,255,0.2), rgba(18,124,255,0.1));
+      background: rgba(0,114,255,0.15);
       border: 1px solid rgba(18,124,255,0.25);
       border-radius: 10px;
       display: flex;
@@ -411,9 +378,8 @@
       line-height: 1.7;
     }
 
-    /* CHAT MOCKUP */
     .chat-section {
-      background: linear-gradient(180deg, transparent, rgba(0,30,80,0.15), transparent);
+      background: linear-gradient(180deg, #020818, rgba(0,30,80,0.2), #020818);
     }
 
     .chat-container {
@@ -448,11 +414,11 @@
       border: 1px solid rgba(18,124,255,0.2);
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 0 60px rgba(0,114,255,0.12), inset 0 1px 0 rgba(255,255,255,0.05);
+      box-shadow: 0 0 60px rgba(0,114,255,0.12);
     }
 
     .chat-header {
-      background: linear-gradient(135deg, rgba(0,114,255,0.2), rgba(18,124,255,0.1));
+      background: rgba(0,114,255,0.15);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(18,124,255,0.2);
       padding: 14px 18px;
@@ -547,9 +513,8 @@
       text-align: right;
     }
 
-    /* NEO INTRO */
     .neo-section {
-      background: linear-gradient(180deg, transparent, rgba(0,40,100,0.1), transparent);
+      background: linear-gradient(180deg, #020818, rgba(0,40,100,0.15), #020818);
     }
 
     .neo-intro {
@@ -562,7 +527,6 @@
     .neo-image {
       display: flex;
       justify-content: center;
-      position: relative;
     }
 
     .neo-img {
@@ -608,9 +572,8 @@
       margin-bottom: 8px;
     }
 
-    /* GOOGLE SHEETS */
     .sheets-section {
-      background: linear-gradient(180deg, transparent, rgba(0,20,60,0.2), transparent);
+      background: linear-gradient(180deg, #020818, rgba(0,20,60,0.25), #020818);
     }
 
     .sheets-mockup {
@@ -623,12 +586,12 @@
     }
 
     .sheets-header {
-      background: linear-gradient(135deg, rgba(0,114,255,0.15), rgba(18,124,255,0.08));
+      background: rgba(0,114,255,0.12);
       border-bottom: 1px solid rgba(18,124,255,0.2);
       padding: 14px 20px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .sheets-dot {
@@ -668,7 +631,7 @@
     }
 
     .sheets-table tr {
-      transition: all 0.3s;
+      transition: opacity 0.4s ease, transform 0.4s ease;
       opacity: 0;
       transform: translateX(-10px);
     }
@@ -678,7 +641,10 @@
       transform: translateX(0);
     }
 
-    .sheets-table tr:hover td { color: #e2e8f0; background: rgba(18,124,255,0.05); }
+    .sheets-table tr:hover td {
+      color: #e2e8f0;
+      background: rgba(18,124,255,0.05);
+    }
 
     .canal-badge {
       display: inline-block;
@@ -692,7 +658,6 @@
     .canal-wa { background: rgba(37,211,102,0.15); color: #4ade80; border: 1px solid rgba(37,211,102,0.3); }
     .canal-ig { background: rgba(225,48,108,0.15); color: #f472b6; border: 1px solid rgba(225,48,108,0.3); }
 
-    /* PLANS */
     .plans-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -803,7 +768,6 @@
       content: '✓';
       color: #127cff;
       font-weight: 700;
-      font-size: 0.9em;
     }
 
     .plan-btn {
@@ -843,9 +807,8 @@
       transform: translateY(-1px);
     }
 
-    /* CTA FINAL */
     .cta-section {
-      background: linear-gradient(180deg, transparent, rgba(0,40,100,0.15), transparent);
+      background: linear-gradient(180deg, #020818, rgba(0,40,100,0.15), #020818);
       text-align: center;
     }
 
@@ -870,20 +833,18 @@
       line-height: 1.7;
     }
 
-    /* FOOTER */
     footer {
       position: relative;
       z-index: 1;
-      border-top: 1px solid transparent;
-      border-image: linear-gradient(90deg, transparent, rgba(18,124,255,0.3), transparent) 1;
       padding: 36px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
-      background: rgba(2,8,24,0.8);
+      background: rgba(2,8,24,0.9);
       backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(18,124,255,0.15);
     }
 
     footer p { color: #334155; font-size: 0.82em; }
@@ -897,39 +858,416 @@
 
     footer a:hover { color: #93c5fd; }
 
-    /* ===== MOBILE FIRST ===== */
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
-
       .hero { padding: 90px 20px 50px; }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
-      }
-
+      .hero-grid { grid-template-columns: 1fr; gap: 30px; text-align: center; }
       .hero-left { order: 1; }
-      .hero-right {
-        order: 2;
-        align-items: center;
-        text-align: center;
-      }
-
+      .hero-right { order: 2; align-items: center; text-align: center; }
       .hero-neo { max-width: 220px; width: 70%; }
       .hero-right p { max-width: 100%; }
-
       .section-inner { padding: 60px 20px; }
-
       .problem-stats { grid-template-columns: 1fr 1fr; gap: 14px; }
       .problem-number { font-size: 2.2em; }
-
       .features-grid { grid-template-columns: 1fr; }
+      .chat-container { grid-template-columns: 1fr; gap: 30px; }
+      .neo-intro { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      .neo-image { order: 1; }
+      .neo-text { order: 2; }
+      .neo-img { width: 140px; }
+      .neo-logo-img { width: 120px; }
+      .plans-grid { grid-template-columns: 1fr; }
+      .sheets-table th:nth-child(3),
+      .sheets-table td:nth-child(3) { display: none; }
+      footer { flex-direction: column; text-align: center; padding: 28px 20px; }
+    }
 
-      .chat-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    @media (max-width: 400px) {
+      .hero-right h1 { font-size: 1.9em; letter-spacing: -1px; }
+      .problem-stats { grid-template-columns: 1fr; }
+      .sheets-table th:nth-child(4),
+      .sheets-table td:nth-child(4) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="glow-top"></div>
+
+<nav>
+  <div class="nav-logo">CHAT SOLUTIONS MX</div>
+  <a href="https://www.facebook.com/profile.php?id=61572097770384" class="nav-btn-primary" target="_blank">Hablar con Neo →</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid">
+    <div class="hero-left reveal from-left">
+      <img src="images/NEO BLUE.png" alt="Neo" class="hero-neo">
+    </div>
+    <div class="hero-right reveal from-right">
+      <div class="hero-label">Automatización con IA</div>
+      <h1>Tu negocio responde solo.</h1>
+      <p>Chatbots inteligentes para WhatsApp, Facebook e Instagram. Tu negocio atiende clientes 24/7 sin perder una sola venta.</p>
+      <a href="https://www.facebook.com/profile.php?id=61572097770384" class="btn-primary" target="_blank">Habla con Neo, nuestro agente</a>
+    </div>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<div class="stats-bar">
+  <div class="stat reveal from-bottom">
+    <div class="stat-number">24/7</div>
+    <div class="stat-label">Disponibilidad</div>
+  </div>
+  <div class="stat reveal from-bottom" style="transition-delay:0.1s">
+    <div class="stat-number">3</div>
+    <div class="stat-label">Plataformas</div>
+  </div>
+  <div class="stat reveal from-bottom" style="transition-delay:0.2s">
+    <div class="stat-number">IA</div>
+    <div class="stat-label">Inteligencia Artificial</div>
+  </div>
+  <div class="stat reveal from-bottom" style="transition-delay:0.3s">
+    <div class="stat-number">+10</div>
+    <div class="stat-label">Proyectos Activos</div>
+  </div>
+</div>
+
+<div class="gradient-divider"></div>
+
+<section class="problem-section">
+  <div class="section-inner">
+    <div class="section-label reveal from-bottom">El problema</div>
+    <h2 class="section-title reveal from-bottom">Cada mensaje sin respuesta<br>es dinero perdido.</h2>
+    <p class="section-sub reveal from-bottom">Los negocios pierden clientes todos los días por no responder a tiempo. Tu competencia ya está automatizando.</p>
+    <div class="problem-stats">
+      <div class="problem-card reveal from-left">
+        <div class="problem-number">78%</div>
+        <div class="problem-text">de clientes compran al negocio que responde primero</div>
+      </div>
+      <div class="problem-card reveal from-bottom" style="transition-delay:0.1s">
+        <div class="problem-number">5 min</div>
+        <div class="problem-text">es el tiempo máximo antes de perder un prospecto</div>
+      </div>
+      <div class="problem-card reveal from-bottom" style="transition-delay:0.2s">
+        <div class="problem-number">+60%</div>
+        <div class="problem-text">de mensajes llegan fuera del horario laboral</div>
+      </div>
+      <div class="problem-card reveal from-right">
+        <div class="problem-number">$0</div>
+        <div class="problem-text">costo por conversación cuando el cliente escribe primero</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<section>
+  <div class="section-inner">
+    <div class="section-label reveal from-bottom">Lo que hacemos</div>
+    <h2 class="section-title reveal from-bottom">Todo lo que necesita tu negocio</h2>
+    <p class="section-sub reveal from-bottom">Soluciones completas de automatización para empresas en Chihuahua.</p>
+    <div class="features-grid">
+      <div class="feature-item reveal from-left">
+        <div class="feature-icon">💬</div>
+        <h3>Atención 24/7</h3>
+        <p>Tu negocio responde automáticamente a cada mensaje, a cualquier hora, sin perder una sola venta.</p>
+      </div>
+      <div class="feature-item reveal from-bottom" style="transition-delay:0.1s">
+        <div class="feature-icon">🤖</div>
+        <h3>Inteligencia Artificial</h3>
+        <p>Nuestros agentes entienden lenguaje natural y se adaptan a las preguntas de tus clientes en tiempo real.</p>
+      </div>
+      <div class="feature-item reveal from-right">
+        <div class="feature-icon">📊</div>
+        <h3>Captura de Leads</h3>
+        <p>Cada conversación guarda automáticamente nombre, teléfono y datos del cliente en Google Sheets.</p>
+      </div>
+      <div class="feature-item reveal from-left" style="transition-delay:0.1s">
+        <div class="feature-icon">📅</div>
+        <h3>Agenda Automática</h3>
+        <p>El agente agenda citas directamente en Google Calendar sin que tengas que intervenir.</p>
+      </div>
+      <div class="feature-item reveal from-bottom" style="transition-delay:0.2s">
+        <div class="feature-icon">📱</div>
+        <h3>Multi-plataforma</h3>
+        <p>Un solo sistema para WhatsApp, Facebook Messenger e Instagram DMs.</p>
+      </div>
+      <div class="feature-item reveal from-right" style="transition-delay:0.1s">
+        <div class="feature-icon">🛠</div>
+        <h3>Soporte incluido</h3>
+        <p>Te acompañamos con soporte dedicado y ajustes mensuales sin costo adicional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<section class="chat-section">
+  <div class="section-inner">
+    <div class="section-label reveal from-bottom">Demo en vivo</div>
+    <h2 class="section-title reveal from-bottom">Así trabaja tu agente</h2>
+    <p class="section-sub reveal from-bottom">Tu cliente escribe, tu agente responde. Así de simple.</p>
+    <div class="chat-container">
+      <div class="chat-text reveal from-left">
+        <h2>Convierte mensajes en ventas reales</h2>
+        <p>Tu agente entiende lo que tu cliente necesita, responde al instante y guarda cada lead automáticamente. Sin intervención humana, sin perder una sola oportunidad.</p>
+        <a href="https://www.facebook.com/profile.php?id=61572097770384" class="btn-primary" target="_blank">Probar a Neo ahora →</a>
+      </div>
+      <div class="chat-mockup reveal from-right">
+        <div class="chat-header">
+          <div class="chat-avatar">C</div>
+          <div class="chat-info">
+            <div class="chat-name">La Calesa · Restaurant</div>
+            <div class="chat-status">En línea</div>
+          </div>
+        </div>
+        <div class="chat-body">
+          <div class="chat-body-bg"></div>
+          <div class="msg msg-bot">
+            ¡Hola! 👋 Bienvenido a <strong>La Calesa</strong>. ¿En qué te puedo ayudar hoy?
+            <div class="msg-time">10:42 am</div>
+          </div>
+          <div class="msg msg-user">
+            Quiero hacer un pedido para llevar
+            <div class="msg-time" style="color:rgba(255,255,255,0.4)">10:42 am</div>
+          </div>
+          <div class="msg msg-bot">
+            ¡Con gusto! 👨‍🍳 Hoy tenemos:<br><br>
+            • Corte de bistec $150<br>
+            • Taco de camarón $65<br>
+            • Quesadilla Alemana $75<br><br>
+            ¿Cuál sería tu pedido?
+            <div class="msg-time">10:43 am</div>
+          </div>
+          <div class="msg msg-user">
+            2 cortes y 4 tacos de camarón
+            <div class="msg-time" style="color:rgba(255,255,255,0.4)">10:43 am</div>
+          </div>
+          <div class="msg msg-bot">
+            Perfecto ✅<br>
+            • 2x Bistec — $300<br>
+            • 4x Camarón — $260<br>
+            <strong>Total: $560 MXN</strong><br><br>
+            ¿Me das tu nombre? 🙌
+            <div class="msg-time">10:44 am</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<section class="neo-section">
+  <div class="section-inner">
+    <div class="section-label reveal from-bottom">Nuestro agente demo</div>
+    <div class="neo-intro">
+      <div class="neo-image reveal from-left">
+        <div style="text-align:center">
+          <img src="images/NEO LOGO NEW.png" alt="Neo Logo" class="neo-logo-img">
+          <br>
+          <img src="images/NEO BLUE.png" alt="Neo" class="neo-img">
+        </div>
+      </div>
+      <div class="neo-text reveal from-right">
+        <h2>Conoce a Neo</h2>
+        <p>Neo es el agente de inteligencia artificial de Chat Solutions MX. Está aquí para que puedas experimentar de primera mano cómo funciona un agente conversacional.</p>
+        <p>Cuando contrates nuestro servicio, tu negocio tendrá su <strong style="color:#60a5fa">propio agente personalizado</strong> con el nombre, personalidad y conocimiento de tu marca.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:20px">
+          <span class="neo-tag">🤖 Powered by Claude AI</span>
+          <span class="neo-tag">💬 Español natural</span>
+          <span class="neo-tag">⚡ Respuesta instantánea</span>
+          <span class="neo-tag">📊 Captura leads</span>
+        </div>
+        <br>
+        <a href="https://www.facebook.com/profile.php?id=61572097770384" class="btn-primary" target="_blank" style="margin-top:8px">Hablar con Neo →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<section class="sheets-section">
+  <div class="section-inner">
+    <div class="section-label reveal from-bottom">Captura automática</div>
+    <h2 class="section-title reveal from-bottom">Cada conversación, un lead capturado</h2>
+    <p class="section-sub reveal from-bottom">Mientras tu agente atiende clientes, cada dato se guarda automáticamente en tu Google Sheets en tiempo real.</p>
+    <div class="sheets-mockup reveal scale-in">
+      <div class="sheets-header">
+        <div class="sheets-dot" style="background:#ff5f57"></div>
+        <div class="sheets-dot" style="background:#febc2e"></div>
+        <div class="sheets-dot" style="background:#28c840"></div>
+        <span class="sheets-title">📊 Leads Chat Solutions MX — Google Sheets</span>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="sheets-table">
+          <thead>
+            <tr style="opacity:1; transform:none">
+              <th>Fecha</th>
+              <th>Nombre</th>
+              <th>Teléfono</th>
+              <th>Mensaje</th>
+              <th>Canal</th>
+            </tr>
+          </thead>
+          <tbody id="sheetsBody">
+            <tr>
+              <td>28/04/2026</td>
+              <td>Carlos Mendoza</td>
+              <td>614-123-4567</td>
+              <td>Quiero info del plan pro</td>
+              <td><span class="canal-badge canal-fb">Facebook</span></td>
+            </tr>
+            <tr>
+              <td>28/04/2026</td>
+              <td>Ana Rivas</td>
+              <td>614-234-5678</td>
+              <td>¿Cuánto cuesta?</td>
+              <td><span class="canal-badge canal-wa">WhatsApp</span></td>
+            </tr>
+            <tr>
+              <td>28/04/2026</td>
+              <td>Jorge Soto</td>
+              <td>614-345-6789</td>
+              <td>Me interesa una demo</td>
+              <td><span class="canal-badge canal-ig">Instagram</span></td>
+            </tr>
+            <tr>
+              <td>28/04/2026</td>
+              <td>María López</td>
+              <td>614-456-7890</td>
+              <td>Tengo un restaurante</td>
+              <td><span class="canal-badge canal-fb">Facebook</span></td>
+            </tr>
+            <tr>
+              <td>28/04/2026</td>
+              <td>Roberto Chávez</td>
+              <td>614-567-8901</td>
+              <td>Información por favor</td>
+              <td><span class="canal-badge canal-wa">WhatsApp</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<section>
+  <div class="section-inner">
+    <div class="section-label reveal from-bottom">Precios</div>
+    <h2 class="section-title reveal from-bottom">Elige tu plan</h2>
+    <p class="section-sub reveal from-bottom">Sin contratos largos. Cancela cuando quieras.</p>
+    <div class="plans-grid">
+      <div class="plan-card reveal from-left">
+        <div class="plan-card-bg"></div>
+        <div class="plan-card-overlay"></div>
+        <div class="plan-name">Plan Esencial</div>
+        <div class="plan-price">$800<span>/mes</span></div>
+        <p class="plan-desc">Ideal para negocios pequeños que quieren empezar a automatizar.</p>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>1 plataforma (FB o Instagram)</li>
+          <li>Agente con IA 24/7</li>
+          <li>500 conversaciones al mes</li>
+          <li>1 mes de soporte incluido</li>
+        </ul>
+        <a href="https://www.facebook.com/profile.php?id=61572097770384" class="plan-btn plan-btn-outline" target="_blank">Empezar ahora</a>
+      </div>
+      <div class="plan-card reveal from-bottom">
+        <div class="plan-card-bg"></div>
+        <div class="plan-card-overlay"></div>
+        <div class="plan-name">Plan Profesional</div>
+        <div class="plan-price">$1,100<span>/mes</span></div>
+        <p class="plan-desc">El más solicitado. Para negocios que quieren crecer rápido.</p>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>2 plataformas</li>
+          <li>Agente con IA personalizado</li>
+          <li>Google Sheets automático</li>
+          <li>1,000 conversaciones al mes</li>
+          <li>2 meses de soporte incluido</li>
+        </ul>
+        <a href="https://www.facebook.com/profile.php?id=61572097770384" class="plan-btn plan-btn-filled" target="_blank">Empezar ahora</a>
+      </div>
+      <div class="plan-card reveal from-right">
+        <div class="plan-card-bg"></div>
+        <div class="plan-card-overlay"></div>
+        <div class="plan-name">Plan Empresarial</div>
+        <div class="plan-price">$1,500<span>/mes</span></div>
+        <p class="plan-desc">Automatización total para negocios con alto volumen de mensajes.</p>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>3 plataformas</li>
+          <li>Agente con IA personalizado</li>
+          <li>Google Sheets + Calendar</li>
+          <li>Conversaciones ilimitadas</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a href="https://www.facebook.com/profile.php?id=61572097770384" class="plan-btn plan-btn-outline" target="_blank">Empezar ahora</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<section class="cta-section">
+  <div class="section-inner" style="padding-bottom:100px">
+    <div class="reveal from-bottom">
+      <img src="images/NEO BLUE.png" alt="Neo" style="width:120px; filter:drop-shadow(0 0 30px rgba(0,114,255,0.6)); animation:float 8s ease-in-out infinite; margin-bottom:30px">
+    </div>
+    <h2 class="reveal from-bottom">¿Listo para automatizar<br>tu negocio?</h2>
+    <p class="reveal from-bottom">Habla con Neo ahora mismo y descubre cómo un agente con IA puede transformar la atención al cliente de tu negocio.</p>
+    <a href="https://www.facebook.com/profile.php?id=61572097770384" class="btn-primary reveal from-bottom" target="_blank" style="font-size:1.05em; padding:16px 44px">Hablar con Neo →</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Chat Solutions MX — Chihuahua, México</p>
+  <a href="privacy.html">Política de Privacidad</a>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  function handleScroll() {
+    const windowH = window.innerHeight;
+    reveals.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < windowH * 0.88 && rect.bottom > 0) {
+        el.classList.add('visible');
+      } else {
+        el.classList.remove('visible');
       }
+    });
 
-      .neo-intro {
-        grid-te
+    const sheetsMockup = document.querySelector('.sheets-mockup');
+    if (sheetsMockup) {
+      const rect = sheetsMockup.getBoundingClientRect();
+      const rows = document.querySelectorAll('#sheetsBody tr');
+      if (rect.top < windowH * 0.9) {
+        rows.forEach((row, i) => {
+          setTimeout(() => row.classList.add('row-visible'), i * 150);
+        });
+      } else {
+        rows.forEach(row => row.classList.remove('row-visible'));
+      }
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+</script>
+
+</body>
+</html>
