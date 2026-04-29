@@ -9,11 +9,12 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
+    html, body {
       font-family: 'Inter', sans-serif;
       background: #020818;
       color: #fff;
       overflow-x: hidden;
+      max-width: 100vw;
     }
 
     .glow-top {
@@ -109,26 +110,20 @@
       justify-content: center;
     }
 
-    .hero-brand {
-      text-align: center;
-    }
+    .hero-brand { text-align: center; }
 
-    /* NOMBRE DE EMPRESA — el más grande y dominante */
     .hero-brand-name {
-      font-size: clamp(2.8em, 5vw, 4.5em);
+      font-size: clamp(3.5em, 7vw, 6em);
       font-weight: 800;
-      letter-spacing: -2px;
+      letter-spacing: -3px;
       line-height: 1;
-      background: linear-gradient(135deg, #fff 0%, #93c5fd 50%, #0072ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #fff;
       margin-bottom: 14px;
     }
 
     .hero-brand-sub {
       font-size: 0.78em;
-      color: #475569;
+      color: #64748b;
       letter-spacing: 2px;
       text-transform: uppercase;
       font-weight: 400;
@@ -178,22 +173,18 @@
       50% { opacity: 0.4; }
     }
 
-    /* SLOGAN — más pequeño que el nombre */
     .hero-right h1 {
       font-size: clamp(1.6em, 3.5vw, 2.8em);
       font-weight: 700;
       line-height: 1.15;
       letter-spacing: -1px;
       margin-bottom: 20px;
-      background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 40%, #60a5fa 70%, #127cff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #e2e8f0;
     }
 
     .hero-right p {
       font-size: 0.95em;
-      color: #64748b;
+      color: #94a3b8;
       line-height: 1.8;
       margin-bottom: 36px;
       max-width: 420px;
@@ -251,7 +242,7 @@
 
     .stat-label {
       font-size: 0.72em;
-      color: #475569;
+      color: #64748b;
       margin-top: 4px;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -287,7 +278,7 @@
 
     .section-sub {
       text-align: center;
-      color: #475569;
+      color: #94a3b8;
       font-size: 0.95em;
       margin-bottom: 50px;
       max-width: 500px;
@@ -380,7 +371,7 @@
 
     .feature-item p {
       font-size: 0.85em;
-      color: #475569;
+      color: #94a3b8;
       line-height: 1.7;
     }
 
@@ -408,13 +399,12 @@
     }
 
     .chat-text p {
-      color: #475569;
+      color: #94a3b8;
       line-height: 1.8;
       font-size: 0.92em;
       margin-bottom: 28px;
     }
 
-    /* CHAT MOCKUP — tamaño fijo desde el principio */
     .chat-mockup {
       background: rgba(5,15,40,0.7);
       backdrop-filter: blur(20px);
@@ -422,7 +412,7 @@
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 0 60px rgba(0,114,255,0.12);
-      height: 800px;
+      height: 520px;
       display: flex;
       flex-direction: column;
     }
@@ -497,10 +487,7 @@
       flex-shrink: 0;
     }
 
-    .msg.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .msg.visible { opacity: 1; transform: translateY(0); }
 
     .msg-bot {
       align-self: flex-start;
@@ -573,62 +560,18 @@
       30% { transform: translateY(-5px); opacity: 1; }
     }
 
-    .neo-section {
-      background: linear-gradient(180deg, #020818, rgba(0,40,100,0.15), #020818);
-    }
-
-    .neo-intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .neo-image {
-      display: flex;
-      justify-content: center;
-    }
-
-    .neo-logo-img {
-      width: 220px;
-    }
-
-    .neo-text h2 {
-      font-size: clamp(1.6em, 3.5vw, 2.2em);
-      font-weight: 700;
-      letter-spacing: -1px;
-      margin-bottom: 16px;
-      background: linear-gradient(135deg, #fff, #60a5fa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .neo-text p {
-      color: #475569;
-      line-height: 1.8;
-      font-size: 0.92em;
-      margin-bottom: 16px;
-    }
-
-    .neo-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(18,124,255,0.1);
-      border: 1px solid rgba(18,124,255,0.2);
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 0.75em;
-      color: #93c5fd;
-      margin-bottom: 8px;
-    }
-
-    .sheets-section {
+    /* CAPTURAS — Google Sheets + Calendar */
+    .captures-section {
       background: linear-gradient(180deg, #020818, rgba(0,20,60,0.25), #020818);
     }
 
-    .sheets-mockup {
+    .captures-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .sheets-mockup, .calendar-mockup {
       background: rgba(5,15,40,0.7);
       backdrop-filter: blur(20px);
       border: 1px solid rgba(18,124,255,0.2);
@@ -637,7 +580,7 @@
       box-shadow: 0 0 50px rgba(0,114,255,0.1);
     }
 
-    .sheets-header {
+    .sheets-header, .calendar-header {
       background: rgba(0,114,255,0.12);
       border-bottom: 1px solid rgba(18,124,255,0.2);
       padding: 14px 20px;
@@ -648,7 +591,7 @@
 
     .sheets-dot { width: 10px; height: 10px; border-radius: 50%; }
 
-    .sheets-title {
+    .sheets-title, .calendar-title {
       font-size: 0.82em;
       color: #94a3b8;
       margin-left: 8px;
@@ -695,6 +638,182 @@
     .canal-fb { background: rgba(24,119,242,0.2); color: #60a5fa; border: 1px solid rgba(24,119,242,0.3); }
     .canal-wa { background: rgba(37,211,102,0.15); color: #4ade80; border: 1px solid rgba(37,211,102,0.3); }
     .canal-ig { background: rgba(225,48,108,0.15); color: #f472b6; border: 1px solid rgba(225,48,108,0.3); }
+
+    /* GOOGLE CALENDAR MOCKUP */
+    .calendar-body { padding: 16px; }
+
+    .calendar-month {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .calendar-month-name {
+      font-size: 0.85em;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    .calendar-nav {
+      display: flex;
+      gap: 8px;
+    }
+
+    .calendar-nav span {
+      font-size: 0.75em;
+      color: #60a5fa;
+      cursor: pointer;
+    }
+
+    .calendar-days-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-bottom: 6px;
+    }
+
+    .calendar-days-header span {
+      text-align: center;
+      font-size: 0.65em;
+      color: #475569;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 4px 0;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+    }
+
+    .cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72em;
+      color: #64748b;
+      border-radius: 6px;
+      position: relative;
+    }
+
+    .cal-day.other-month { color: #1e3a5f; }
+    .cal-day.today {
+      background: rgba(18,124,255,0.3);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .cal-day.has-event { color: #e2e8f0; }
+    .cal-day.has-event::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #127cff;
+    }
+
+    .cal-day.booked {
+      background: rgba(0,114,255,0.2);
+      color: #60a5fa;
+      border: 1px solid rgba(18,124,255,0.3);
+    }
+
+    .calendar-events {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cal-event {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      background: rgba(18,124,255,0.1);
+      border: 1px solid rgba(18,124,255,0.2);
+      border-radius: 8px;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .cal-event.event-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .cal-event-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .cal-event-info { flex: 1; }
+
+    .cal-event-title {
+      font-size: 0.75em;
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+
+    .cal-event-time {
+      font-size: 0.65em;
+      color: #64748b;
+      margin-top: 1px;
+    }
+
+    /* NEO */
+    .neo-section {
+      background: linear-gradient(180deg, #020818, rgba(0,40,100,0.15), #020818);
+    }
+
+    .neo-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .neo-image { display: flex; justify-content: center; }
+
+    .neo-logo-img { width: 220px; }
+
+    .neo-text h2 {
+      font-size: clamp(1.6em, 3.5vw, 2.2em);
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .neo-text p {
+      color: #94a3b8;
+      line-height: 1.8;
+      font-size: 0.92em;
+      margin-bottom: 16px;
+    }
+
+    .neo-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(18,124,255,0.1);
+      border: 1px solid rgba(18,124,255,0.2);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.75em;
+      color: #93c5fd;
+      margin-bottom: 8px;
+    }
 
     .plans-grid {
       display: grid;
@@ -831,7 +950,7 @@
     }
 
     .cta-section p {
-      color: #475569;
+      color: #94a3b8;
       font-size: 1em;
       margin-bottom: 40px;
       max-width: 400px;
@@ -879,29 +998,27 @@
       .hero-grid { grid-template-columns: 1fr; gap: 30px; text-align: center; }
       .hero-left { order: 1; }
       .hero-right { order: 2; align-items: center; text-align: center; }
-      .hero-brand-name { font-size: 2.4em; }
+      .hero-brand-name { font-size: 2.8em; letter-spacing: -2px; }
       .hero-right p { max-width: 100%; }
       .section-inner { padding: 60px 20px; }
       .problem-stats { grid-template-columns: 1fr 1fr; gap: 14px; }
       .problem-number { font-size: 2.2em; }
       .features-grid { grid-template-columns: 1fr; }
       .chat-container { grid-template-columns: 1fr; gap: 30px; }
-      .chat-mockup { height: 400px; }
+      .chat-mockup { height: 460px; }
+      .captures-grid { grid-template-columns: 1fr; }
       .neo-intro { grid-template-columns: 1fr; gap: 30px; text-align: center; }
       .neo-image { order: 1; }
       .neo-text { order: 2; }
       .neo-logo-img { width: 160px; }
       .plans-grid { grid-template-columns: 1fr; }
-      .sheets-table th:nth-child(3),
-      .sheets-table td:nth-child(3) { display: none; }
       footer { flex-direction: column; text-align: center; padding: 28px 20px; }
     }
 
     @media (max-width: 400px) {
+      .hero-brand-name { font-size: 2.2em; }
       .hero-right h1 { font-size: 1.6em; letter-spacing: -0.5px; }
       .problem-stats { grid-template-columns: 1fr; }
-      .sheets-table th:nth-child(4),
-      .sheets-table td:nth-child(4) { display: none; }
     }
   </style>
 </head>
@@ -910,7 +1027,7 @@
 <div class="glow-top"></div>
 
 <nav>
-  <div class="nav-logo">CHAT SOLUTIONS MX</div>
+  <div class="nav-logo">CHAT SOLUTIONS CUU</div>
   <a href="https://www.facebook.com/profile.php?id=61572097770384" class="nav-btn-primary" target="_blank">Hablar con Neo →</a>
 </nav>
 
@@ -918,14 +1035,14 @@
   <div class="hero-grid">
     <div class="hero-left reveal from-left">
       <div class="hero-brand">
-        <div class="hero-brand-name">Chat Solutions MX</div>
+        <div class="hero-brand-name">Chat Solutions CUU</div>
         <div class="hero-brand-sub">Agentes IA para tu negocio</div>
       </div>
     </div>
     <div class="hero-right reveal from-right">
       <div class="hero-label">Automatización con IA</div>
       <h1>Tu negocio responde solo.</h1>
-      <p>Chatbots inteligentes para WhatsApp, Facebook e Instagram. Tu negocio atiende clientes 24/7 sin perder una sola venta.</p>
+      <p>Agentes inteligentes para WhatsApp, Facebook e Instagram. Tu negocio atiende clientes 24/7 sin perder una sola venta.</p>
       <a href="https://www.facebook.com/profile.php?id=61572097770384" class="btn-primary" target="_blank">Habla con Neo, nuestro agente</a>
     </div>
   </div>
@@ -947,8 +1064,8 @@
     <div class="stat-label">Inteligencia Artificial</div>
   </div>
   <div class="stat reveal from-bottom" style="transition-delay:0.3s">
-    <div class="stat-number">+10</div>
-    <div class="stat-label">Proyectos Activos</div>
+    <div class="stat-number">Leads</div>
+    <div class="stat-label">Capturados</div>
   </div>
 </div>
 
@@ -1024,6 +1141,7 @@
 
 <div class="gradient-divider"></div>
 
+<!-- CHAT DEMO -->
 <section class="chat-section">
   <div class="section-inner">
     <div class="section-label reveal from-bottom">Demo en vivo</div>
@@ -1057,22 +1175,164 @@
 
 <div class="gradient-divider"></div>
 
+<!-- GOOGLE SHEETS + CALENDAR -->
+<section class="captures-section">
+  <div class="section-inner">
+    <div class="section-label reveal from-bottom">Captura automática</div>
+    <h2 class="section-title reveal from-bottom">Cada conversación, un lead capturado</h2>
+    <p class="section-sub reveal from-bottom">Mientras tu agente atiende clientes, cada dato se guarda automáticamente en Google Sheets y las citas en Google Calendar.</p>
+    <div class="captures-grid">
+      <!-- Google Sheets -->
+      <div class="sheets-mockup reveal from-left">
+        <div class="sheets-header">
+          <div class="sheets-dot" style="background:#ff5f57"></div>
+          <div class="sheets-dot" style="background:#febc2e"></div>
+          <div class="sheets-dot" style="background:#28c840"></div>
+          <span class="sheets-title">📊 Tus Leads — Google Sheets</span>
+        </div>
+        <div style="overflow-x:auto">
+          <table class="sheets-table">
+            <thead>
+              <tr style="opacity:1; transform:none">
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Canal</th>
+              </tr>
+            </thead>
+            <tbody id="sheetsBody">
+              <tr>
+                <td>Carlos Mendoza</td>
+                <td>614-123-4567</td>
+                <td><span class="canal-badge canal-fb">Facebook</span></td>
+              </tr>
+              <tr>
+                <td>Ana Rivas</td>
+                <td>614-234-5678</td>
+                <td><span class="canal-badge canal-wa">WhatsApp</span></td>
+              </tr>
+              <tr>
+                <td>Jorge Soto</td>
+                <td>614-345-6789</td>
+                <td><span class="canal-badge canal-ig">Instagram</span></td>
+              </tr>
+              <tr>
+                <td>María López</td>
+                <td>614-456-7890</td>
+                <td><span class="canal-badge canal-fb">Facebook</span></td>
+              </tr>
+              <tr>
+                <td>Roberto Chávez</td>
+                <td>614-567-8901</td>
+                <td><span class="canal-badge canal-wa">WhatsApp</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Google Calendar -->
+      <div class="calendar-mockup reveal from-right">
+        <div class="calendar-header">
+          <div class="sheets-dot" style="background:#ff5f57"></div>
+          <div class="sheets-dot" style="background:#febc2e"></div>
+          <div class="sheets-dot" style="background:#28c840"></div>
+          <span class="calendar-title">📅 Citas — Google Calendar</span>
+        </div>
+        <div class="calendar-body">
+          <div class="calendar-month">
+            <span class="calendar-month-name">Mayo 2026</span>
+            <div class="calendar-nav">
+              <span>‹</span>
+              <span>›</span>
+            </div>
+          </div>
+          <div class="calendar-days-header">
+            <span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
+          </div>
+          <div class="calendar-grid">
+            <span class="cal-day other-month">28</span>
+            <span class="cal-day other-month">29</span>
+            <span class="cal-day other-month">30</span>
+            <span class="cal-day">1</span>
+            <span class="cal-day has-event">2</span>
+            <span class="cal-day">3</span>
+            <span class="cal-day">4</span>
+            <span class="cal-day has-event">5</span>
+            <span class="cal-day">6</span>
+            <span class="cal-day booked">7</span>
+            <span class="cal-day has-event">8</span>
+            <span class="cal-day">9</span>
+            <span class="cal-day">10</span>
+            <span class="cal-day">11</span>
+            <span class="cal-day booked">12</span>
+            <span class="cal-day">13</span>
+            <span class="cal-day has-event">14</span>
+            <span class="cal-day today">15</span>
+            <span class="cal-day">16</span>
+            <span class="cal-day">17</span>
+            <span class="cal-day booked">18</span>
+            <span class="cal-day">19</span>
+            <span class="cal-day has-event">20</span>
+            <span class="cal-day">21</span>
+            <span class="cal-day">22</span>
+            <span class="cal-day booked">23</span>
+            <span class="cal-day">24</span>
+            <span class="cal-day">25</span>
+            <span class="cal-day">26</span>
+            <span class="cal-day has-event">27</span>
+            <span class="cal-day">28</span>
+            <span class="cal-day booked">29</span>
+            <span class="cal-day">30</span>
+            <span class="cal-day">31</span>
+          </div>
+          <div class="calendar-events" id="calendarEvents">
+            <div class="cal-event">
+              <div class="cal-event-dot" style="background:#127cff"></div>
+              <div class="cal-event-info">
+                <div class="cal-event-title">Demo — Entrega de producto</div>
+                <div class="cal-event-time">Hoy · 10:00 am</div>
+              </div>
+            </div>
+            <div class="cal-event">
+              <div class="cal-event-dot" style="background:#22c55e"></div>
+              <div class="cal-event-info">
+                <div class="cal-event-title">Venta — Producto 2</div>
+                <div class="cal-event-time">Hoy · 12:30 pm</div>
+              </div>
+            </div>
+            <div class="cal-event">
+              <div class="cal-event-dot" style="background:#f472b6"></div>
+              <div class="cal-event-info">
+                <div class="cal-event-title">Venta — Servicio</div>
+                <div class="cal-event-time">Mañana · 9:00 am</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<!-- NEO -->
 <section class="neo-section">
   <div class="section-inner">
-    <div class="section-label reveal from-bottom">Nuestro agente demo</div>
+    <div class="section-label reveal from-bottom">Nuestro agente</div>
     <div class="neo-intro">
       <div class="neo-image reveal from-left">
         <img src="images/NEO LOGO TEXTO.png" alt="Neo" class="neo-logo-img">
       </div>
       <div class="neo-text reveal from-right">
         <h2>Conoce a Neo</h2>
-        <p>Neo es el agente de inteligencia artificial de Chat Solutions MX. Está aquí para que puedas experimentar de primera mano cómo funciona un agente conversacional.</p>
+        <p>Neo es el agente de inteligencia artificial de Chat Solutions CUU. Está aquí para que puedas experimentar de primera mano cómo funciona un agente conversacional.</p>
         <p>Cuando contrates nuestro servicio, tu negocio tendrá su <strong style="color:#60a5fa">propio agente personalizado</strong> con el nombre, personalidad y conocimiento de tu marca.</p>
         <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:20px">
           <span class="neo-tag">🤖 Powered by Claude AI</span>
           <span class="neo-tag">💬 Español natural</span>
           <span class="neo-tag">⚡ Respuesta instantánea</span>
-          <span class="neo-tag">📊 Captura leads</span>
+          <span class="neo-tag">📊 Captura leads y Calendar</span>
         </div>
         <br>
         <a href="https://www.facebook.com/profile.php?id=61572097770384" class="btn-primary" target="_blank" style="margin-top:8px">Hablar con Neo →</a>
@@ -1083,74 +1343,7 @@
 
 <div class="gradient-divider"></div>
 
-<section class="sheets-section">
-  <div class="section-inner">
-    <div class="section-label reveal from-bottom">Captura automática</div>
-    <h2 class="section-title reveal from-bottom">Cada conversación, un lead capturado</h2>
-    <p class="section-sub reveal from-bottom">Mientras tu agente atiende clientes, cada dato se guarda automáticamente en tu Google Sheets en tiempo real.</p>
-    <div class="sheets-mockup reveal scale-in">
-      <div class="sheets-header">
-        <div class="sheets-dot" style="background:#ff5f57"></div>
-        <div class="sheets-dot" style="background:#febc2e"></div>
-        <div class="sheets-dot" style="background:#28c840"></div>
-        <span class="sheets-title">📊 Tus Leads — Google Sheets</span>
-      </div>
-      <div style="overflow-x:auto">
-        <table class="sheets-table">
-          <thead>
-            <tr style="opacity:1; transform:none">
-              <th>Fecha</th>
-              <th>Nombre</th>
-              <th>Teléfono</th>
-              <th>Mensaje</th>
-              <th>Canal</th>
-            </tr>
-          </thead>
-          <tbody id="sheetsBody">
-            <tr>
-              <td>28/04/2026</td>
-              <td>Carlos Mendoza</td>
-              <td>614-123-4567</td>
-              <td>Quiero info del plan pro</td>
-              <td><span class="canal-badge canal-fb">Facebook</span></td>
-            </tr>
-            <tr>
-              <td>28/04/2026</td>
-              <td>Ana Rivas</td>
-              <td>614-234-5678</td>
-              <td>¿Cuánto cuesta?</td>
-              <td><span class="canal-badge canal-wa">WhatsApp</span></td>
-            </tr>
-            <tr>
-              <td>28/04/2026</td>
-              <td>Jorge Soto</td>
-              <td>614-345-6789</td>
-              <td>Me interesa una demo</td>
-              <td><span class="canal-badge canal-ig">Instagram</span></td>
-            </tr>
-            <tr>
-              <td>28/04/2026</td>
-              <td>María López</td>
-              <td>614-456-7890</td>
-              <td>Tengo un restaurante</td>
-              <td><span class="canal-badge canal-fb">Facebook</span></td>
-            </tr>
-            <tr>
-              <td>28/04/2026</td>
-              <td>Roberto Chávez</td>
-              <td>614-567-8901</td>
-              <td>Información por favor</td>
-              <td><span class="canal-badge canal-wa">WhatsApp</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="gradient-divider"></div>
-
+<!-- PLANES -->
 <section>
   <div class="section-inner">
     <div class="section-label reveal from-bottom">Precios</div>
@@ -1164,10 +1357,10 @@
         <p class="plan-desc">Ideal para negocios pequeños que quieren empezar a automatizar.</p>
         <div class="plan-divider"></div>
         <ul class="plan-features">
-          <li>1 plataforma (FB o Instagram)</li>
+          <li>1 plataforma (Facebook, Instagram o Whatsapp)</li>
           <li>Agente con IA 24/7</li>
           <li>500 conversaciones al mes</li>
-          <li>1 mes de soporte incluido</li>
+          <li>1 ajuste por mes sin cargo</li>
         </ul>
         <a href="https://www.facebook.com/profile.php?id=61572097770384" class="plan-btn plan-btn-outline" target="_blank">Empezar ahora</a>
       </div>
@@ -1182,7 +1375,7 @@
           <li>Agente con IA personalizado</li>
           <li>Google Sheets automático</li>
           <li>1,000 conversaciones al mes</li>
-          <li>2 meses de soporte incluido</li>
+          <li>3 ajustes por mes sin cargo</li>
         </ul>
         <a href="https://www.facebook.com/profile.php?id=61572097770384" class="plan-btn plan-btn-filled" target="_blank">Empezar ahora</a>
       </div>
@@ -1211,13 +1404,13 @@
   <div class="section-inner" style="padding-bottom:100px">
     <img src="images/NEO CABEZA.png" alt="Neo" class="neo-cabeza-img reveal from-top">
     <h2 class="reveal from-bottom">¿Listo para automatizar<br>tu negocio?</h2>
-    <p class="reveal from-bottom">Habla con Neo ahora mismo y descubre cómo un agente con IA puede transformar la atención al cliente de tu negocio.</p>
+    <p class="reveal from-bottom">Habla con Neo ahora mismo y descubre cómo un agente con IA puede transformar tu atención al cliente.</p>
     <a href="https://www.facebook.com/profile.php?id=61572097770384" class="btn-primary reveal from-bottom" target="_blank" style="font-size:1.05em; padding:16px 44px">Hablar con Neo →</a>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Chat Solutions MX — Chihuahua, México</p>
+  <p>© 2026 Chat Solutions CUU — Chihuahua, México</p>
   <a href="privacy.html">Política de Privacidad</a>
 </footer>
 
@@ -1235,6 +1428,7 @@
       }
     });
 
+    // Google Sheets rows
     const sheetsMockup = document.querySelector('.sheets-mockup');
     if (sheetsMockup) {
       const rect = sheetsMockup.getBoundingClientRect();
@@ -1246,6 +1440,19 @@
       }
     }
 
+    // Google Calendar events
+    const calMockup = document.querySelector('.calendar-mockup');
+    if (calMockup) {
+      const rect = calMockup.getBoundingClientRect();
+      const events = document.querySelectorAll('.cal-event');
+      if (rect.top < windowH * 0.9) {
+        events.forEach((ev, i) => setTimeout(() => ev.classList.add('event-visible'), i * 200 + 300));
+      } else {
+        events.forEach(ev => ev.classList.remove('event-visible'));
+      }
+    }
+
+    // Chat — solo una vez
     const chatMockup = document.getElementById('chatMockup');
     if (chatMockup && !chatMockup.dataset.animated) {
       const rect = chatMockup.getBoundingClientRect();
@@ -1256,13 +1463,14 @@
     }
   }
 
+  // Chat messages — doble tiempo en mensajes largos del usuario
   const chatMessages = [
-    { type: 'user', text: 'Hola', time: '10:42 am' },
-    { type: 'bot', text: '¡Hola! 👋 Bienvenido a <strong>La Calesa</strong>. ¿En qué te puedo ayudar hoy?', time: '10:42 am' },
-    { type: 'user', text: 'Quiero hacer un pedido para llevar', time: '10:43 am' },
-    { type: 'bot', text: '¡Con gusto! 👨‍🍳 Hoy tenemos:<br><br>• Corte de bistec $150<br>• Taco de camarón $65<br>• Quesadilla Alemana $75<br><br>¿Cuál sería tu pedido?', time: '10:43 am' },
-    { type: 'user', text: '2 cortes y 4 tacos de camarón por favor', time: '10:44 am' },
-    { type: 'bot', text: 'Perfecto ✅<br>• 2x Bistec — $300<br>• 4x Camarón — $260<br><strong>Total: $560 MXN</strong><br><br>¿Me das tu nombre para tenerlo listo? 🙌', time: '10:44 am' },
+    { type: 'user', text: 'Hola', time: '10:42 am', typingMs: 900 },
+    { type: 'bot', text: '¡Hola! 👋 Bienvenido a <strong>La Calesa</strong>. ¿En qué te puedo ayudar hoy?', time: '10:42 am', typingMs: 1300 },
+    { type: 'user', text: 'Quiero hacer un pedido para llevar', time: '10:43 am', typingMs: 2000 },
+    { type: 'bot', text: '¡Con gusto! 👨‍🍳 Hoy tenemos:<br><br>• Corte de bistec $150<br>• Taco de camarón $65<br>• Quesadilla Alemana $75<br><br>¿Cuál sería tu pedido?', time: '10:43 am', typingMs: 1400 },
+    { type: 'user', text: '2 cortes y 4 tacos de camarón por favor', time: '10:44 am', typingMs: 2200 },
+    { type: 'bot', text: 'Perfecto ✅<br>• 2x Bistec — $300<br>• 4x Camarón — $260<br><strong>Total: $560 MXN</strong><br><br>¿Me das tu nombre para tenerlo listo? 🙌', time: '10:44 am', typingMs: 1300 },
   ];
 
   let chatTimeouts = [];
@@ -1284,7 +1492,7 @@
         }
       }, delay));
 
-      delay += msg.type === 'user' ? 900 : 1300;
+      delay += msg.typingMs;
 
       chatTimeouts.push(setTimeout(() => {
         const indicator = document.getElementById('typingIndicator');
