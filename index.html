@@ -113,23 +113,25 @@
       text-align: center;
     }
 
+    /* NOMBRE DE EMPRESA — el más grande y dominante */
     .hero-brand-name {
-      font-size: clamp(1.8em, 4vw, 3em);
+      font-size: clamp(2.8em, 5vw, 4.5em);
       font-weight: 800;
-      letter-spacing: -1px;
-      line-height: 1.1;
+      letter-spacing: -2px;
+      line-height: 1;
       background: linear-gradient(135deg, #fff 0%, #93c5fd 50%, #0072ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .hero-brand-sub {
-      font-size: 0.82em;
+      font-size: 0.78em;
       color: #475569;
       letter-spacing: 2px;
       text-transform: uppercase;
+      font-weight: 400;
     }
 
     @keyframes float {
@@ -176,11 +178,12 @@
       50% { opacity: 0.4; }
     }
 
+    /* SLOGAN — más pequeño que el nombre */
     .hero-right h1 {
-      font-size: clamp(2.2em, 5vw, 4em);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -2px;
+      font-size: clamp(1.6em, 3.5vw, 2.8em);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -1px;
       margin-bottom: 20px;
       background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 40%, #60a5fa 70%, #127cff 100%);
       -webkit-background-clip: text;
@@ -189,7 +192,7 @@
     }
 
     .hero-right p {
-      font-size: 1em;
+      font-size: 0.95em;
       color: #64748b;
       line-height: 1.8;
       margin-bottom: 36px;
@@ -389,7 +392,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 50px;
-      align-items: center;
+      align-items: start;
     }
 
     .chat-text h2 {
@@ -411,6 +414,7 @@
       margin-bottom: 28px;
     }
 
+    /* CHAT MOCKUP — tamaño fijo desde el principio */
     .chat-mockup {
       background: rgba(5,15,40,0.7);
       backdrop-filter: blur(20px);
@@ -418,6 +422,9 @@
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 0 60px rgba(0,114,255,0.12);
+      height: 460px;
+      display: flex;
+      flex-direction: column;
     }
 
     .chat-header {
@@ -428,6 +435,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-shrink: 0;
     }
 
     .chat-avatar {
@@ -475,8 +483,7 @@
       flex-direction: column;
       gap: 10px;
       position: relative;
-      min-height: 320px;
-      max-height: 400px;
+      flex: 1;
       overflow: hidden;
     }
 
@@ -529,7 +536,6 @@
       gap: 4px;
       align-items: center;
       padding: 10px 14px;
-      border-radius: 0 12px 12px 12px;
       width: fit-content;
       position: relative;
       z-index: 1;
@@ -545,6 +551,7 @@
     .typing-indicator.bot-typing {
       background: rgba(18,124,255,0.18);
       border: 1px solid rgba(18,124,255,0.25);
+      border-radius: 0 12px 12px 12px;
       align-self: flex-start;
     }
 
@@ -872,13 +879,14 @@
       .hero-grid { grid-template-columns: 1fr; gap: 30px; text-align: center; }
       .hero-left { order: 1; }
       .hero-right { order: 2; align-items: center; text-align: center; }
-      .hero-brand-name { font-size: 2em; }
+      .hero-brand-name { font-size: 2.4em; }
       .hero-right p { max-width: 100%; }
       .section-inner { padding: 60px 20px; }
       .problem-stats { grid-template-columns: 1fr 1fr; gap: 14px; }
       .problem-number { font-size: 2.2em; }
       .features-grid { grid-template-columns: 1fr; }
       .chat-container { grid-template-columns: 1fr; gap: 30px; }
+      .chat-mockup { height: 400px; }
       .neo-intro { grid-template-columns: 1fr; gap: 30px; text-align: center; }
       .neo-image { order: 1; }
       .neo-text { order: 2; }
@@ -890,7 +898,7 @@
     }
 
     @media (max-width: 400px) {
-      .hero-right h1 { font-size: 1.9em; letter-spacing: -1px; }
+      .hero-right h1 { font-size: 1.6em; letter-spacing: -0.5px; }
       .problem-stats { grid-template-columns: 1fr; }
       .sheets-table th:nth-child(4),
       .sheets-table td:nth-child(4) { display: none; }
@@ -1214,7 +1222,6 @@
 </footer>
 
 <script>
-  // ===== SCROLL REVEALS =====
   const reveals = document.querySelectorAll('.reveal');
 
   function handleScroll() {
@@ -1228,7 +1235,6 @@
       }
     });
 
-    // Google Sheets rows
     const sheetsMockup = document.querySelector('.sheets-mockup');
     if (sheetsMockup) {
       const rect = sheetsMockup.getBoundingClientRect();
@@ -1240,7 +1246,6 @@
       }
     }
 
-    // Chat — solo una vez
     const chatMockup = document.getElementById('chatMockup');
     if (chatMockup && !chatMockup.dataset.animated) {
       const rect = chatMockup.getBoundingClientRect();
@@ -1251,7 +1256,6 @@
     }
   }
 
-  // ===== CHAT ANIMATION — una sola vez =====
   const chatMessages = [
     { type: 'user', text: 'Hola', time: '10:42 am' },
     { type: 'bot', text: '¡Hola! 👋 Bienvenido a <strong>La Calesa</strong>. ¿En qué te puedo ayudar hoy?', time: '10:42 am' },
@@ -1270,10 +1274,9 @@
     const body = document.getElementById('chatBody');
     body.innerHTML = '<div class="typing-indicator" id="typingIndicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
 
-    let delay = 500;
+    let delay = 800;
 
     chatMessages.forEach((msg) => {
-      // Mostrar typing del lado correcto
       chatTimeouts.push(setTimeout(() => {
         const indicator = document.getElementById('typingIndicator');
         if (indicator) {
@@ -1281,7 +1284,7 @@
         }
       }, delay));
 
-      delay += msg.type === 'user' ? 800 : 1200;
+      delay += msg.type === 'user' ? 900 : 1300;
 
       chatTimeouts.push(setTimeout(() => {
         const indicator = document.getElementById('typingIndicator');
@@ -1289,7 +1292,7 @@
         addChatMessage(msg);
       }, delay));
 
-      delay += 600;
+      delay += 500;
     });
   }
 
